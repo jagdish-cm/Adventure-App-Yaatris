@@ -2,10 +2,15 @@ package com.example.yaatris;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,16 +19,11 @@ import android.view.ViewGroup;
  */
 public class Explore_Homepage extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-
+    CarouselView carouselView;
+    int[] sampleImages = {R.drawable.riverrafting, R.drawable.safari, R.drawable.snow, R.drawable.trekking};
 
     public Explore_Homepage() {
-        // Required empty public constructor
+
     }
 
     public static Explore_Homepage newInstance() {
@@ -34,12 +34,25 @@ public class Explore_Homepage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
+
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore__homepage, container, false);
+        View v = inflater.inflate(R.layout.fragment_explore__homepage, container, false);
+        carouselView = (CarouselView) v.findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(imageListener);
+        return v;
     }
 }
