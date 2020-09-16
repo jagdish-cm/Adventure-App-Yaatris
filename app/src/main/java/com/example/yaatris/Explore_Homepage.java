@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -21,6 +23,8 @@ public class Explore_Homepage extends Fragment {
 
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.riverrafting, R.drawable.safari, R.drawable.snow, R.drawable.trekking};
+
+    private static final String[] COUNTRIES = new String[] { "River Rafting", "Trekking", "Desert Safari", "Snow skiing", "Sky Diving", "Caving", "Exploring"};
 
     public Explore_Homepage() {
 
@@ -53,6 +57,7 @@ public class Explore_Homepage extends Fragment {
         carouselView = (CarouselView) v.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
+
         return v;
     }
 }
