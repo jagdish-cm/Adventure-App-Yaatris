@@ -1,15 +1,15 @@
 package com.example.yaatris;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -20,6 +20,9 @@ import com.synnapps.carouselview.ImageListener;
  * create an instance of this fragment.
  */
 public class Explore_Homepage extends Fragment {
+
+
+
 
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.riverrafting, R.drawable.safari, R.drawable.snow, R.drawable.trekking};
@@ -57,6 +60,15 @@ public class Explore_Homepage extends Fragment {
         carouselView = (CarouselView) v.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
+
+        Button btnSearch = (Button) v.findViewById(R.id.searchButton);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity(), MapSearch.class);
+                startActivity(in);
+            }
+        });
 
         return v;
     }

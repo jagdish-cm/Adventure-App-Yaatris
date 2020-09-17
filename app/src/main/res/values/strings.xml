@@ -6,5 +6,7 @@
     <string name="adventures">Adventures</string>
     <string name="volunteers">Volunteers</string>
     <string name="Account">Account</string>
+    <string name="title_activity_explore_maps">Map</string>
+    <string name="map_key" translatable="false">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
 
 </resources>
